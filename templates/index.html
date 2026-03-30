@@ -16,6 +16,21 @@
     box-sizing: border-box;
 	
 }
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 50%;
+}
+
+    
+
+
+
 
 
     </style>
@@ -30,11 +45,14 @@
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
 </head>
 
 <body>
 
-<div class="super_container">
+	<div class="super_container">
 
 	<!-- Header -->
 
@@ -74,40 +92,40 @@
 		</div>
 
 		<!-- Main Navigation -->
-
-		<div class="main_nav_container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid">
 			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-right">
-						<div class="logo_container">
-							<a href="#">kick<span>kart</span></a>
-						</div>
-						<nav class="navbar">
-							<ul class="navbar_menu" style="margin-right: 165px;">
-								<li><a href="">home</a></li>
-								<li><a href="{% url 'store' %}">store</a></li>
-								<li><a href="contact.html">contact</a></li>
-							</ul>
-							<ul class="navbar_user">
-								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-								<li class="checkout">
-									<a href="{% url 'cart_view' %}" 
-									   class="position-relative d-inline-block"
-									   style="margin-left: 100px;">
-								
-										<!-- 🛒 Cart Icon -->
-										<img src="{% static 'images/cart.png' %}" width="40" height="40">
-								
-										<!-- 🔴 Badge -->
-										<span class="position-absolute top-0 start-100 translate-middle badge  text-dark">
-											
-											{{ cart_count }}
-										</span>
-								
-									</a>
-								</li>
-							</ul>
+		  
+			  <!-- Left: Logo -->
+			  <a class="navbar-brand" href="#">KickKart</a>
+		  
+			  <!-- Toggle button -->
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent1">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+		  
+			  <!-- Navbar content -->
+			  <div class="collapse navbar-collapse" id="navbarContent1">
+		  
+				<!-- Center Menu -->
+				<ul class="navbar-nav mx-auto">
+				  <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+				  <li class="nav-item"><a class="nav-link" href="{% url 'store' %}">Store</a></li>
+				  <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+				</ul>
+		  
+				<!-- Right Cart -->
+				<ul class="navbar-nav ms-auto">
+				  <li class="nav-item">
+					<a class="nav-link" href="{% url 'cart_view' %}"><i class="bi bi-cart3"></i> {{ cart_count }}</a>
+				  </li>
+				</ul>
+		  
+			  </div>
+			</div>
+		  </nav>
+
+<!-- Bootstrap JS (IMPORTANT) -->
+
 							<div class="hamburger_container">
 								<i class="fa fa-bars" aria-hidden="true"></i>
 							</div>
@@ -418,6 +436,9 @@
 <script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
 <script src="{% static 'plugins/easing/easing.js' %}"></script>
 <script src="{% static 'js/custom.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 
 </html>
